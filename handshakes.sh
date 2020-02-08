@@ -28,5 +28,6 @@ if [ "$(echo "$line" | grep 'WPA' | grep -E -v '(0 handshake)' | grep -E 'WPA \(
     echo -e "\033[0;32mFound a handshake for the network $ESSID ($BSSID). Saved to file $DIR/\033[1m$ESSID.pcap\e[0m"
     tshark -r $FILE -R "(wlan.fc.type_subtype == 0x08 || wlan.fc.type_subtype == 0x05 || eapol) && wlan.addr == $BSSID" -2 2>/dev/null
     tshark -r $FILE -R "(wlan.fc.type_subtype == 0x08 || wlan.fc.type_subtype == 0x05 || eapol) && wlan.addr == $BSSID" -2 -w ./$DIR/"$ESSID.pcap" -F pcap 2>/dev/null
+    cap2hccapx ./$DIR/$ESSID.pcap ./$DIR/$ESSID.hccapx $ESSID
 fi
 done < <(timeout $AIRCRACK_TIMEOUT aircrack-ng $FILE)
