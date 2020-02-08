@@ -12,5 +12,4 @@ Instructions
 
 Help
 ---
-
-Would love for the new pcap to add a as well hccapx
+Feel free to submit a PR if you feel you can improve this in any way.
