@@ -1,4 +1,4 @@
-# wpa-masshandshakeextract
+# wpa-mass-handshake-extract
 Needed a way to filter all my pwnagotchi handshakes.
 
 Instructions
